@@ -1,8 +1,4 @@
-# encoding: utf-8
 from courses.models import Course, Video, Lesson, CourseResource
-
-__author__ = 'mtianyan'
-__date__ = '2018/1/9 0009 08:02'
 
 import xadmin
 from django.contrib.auth.models import Group, Permission
@@ -23,12 +19,13 @@ class BaseSetting(object):
     enable_themes = True
     use_bootswatch = True
 
-# x admin 全局配置参数信息设置
+
+# xadmin 全局配置参数信息设置
 class GlobalSettings(object):
-    site_title = "天涯明月笙: 慕课后台管理站"
-    site_footer = "mtianyan's mooc"
+    site_title = '慕课后台管理站'
+    site_footer = 'hph mooc'
     # 收起菜单
-    # menu_style = "accordion"
+    # menu_style = 'accordion'
 
     def get_site_menu(self):
         return (
@@ -37,6 +34,7 @@ class GlobalSettings(object):
                 {'title': '机构信息', 'url': self.get_model_url(CourseOrg, 'changelist')},
                 {'title': '机构讲师', 'url': self.get_model_url(Teacher, 'changelist')},
             )},
+
             {'title': '课程管理', 'menus': (
                 {'title': '课程信息', 'url': self.get_model_url(Course, 'changelist')},
                 {'title': '章节信息', 'url': self.get_model_url(Lesson, 'changelist')},
@@ -53,7 +51,6 @@ class GlobalSettings(object):
                 {'title': '用户消息', 'url': self.get_model_url(UserMessage, 'changelist')},
             )},
 
-
             {'title': '系统管理', 'menus': (
                 {'title': '用户咨询', 'url': self.get_model_url(UserAsk, 'changelist')},
                 {'title': '首页轮播', 'url': self.get_model_url(Banner, 'changelist')},
@@ -67,11 +64,12 @@ class GlobalSettings(object):
 # 创建admin的管理类,这里不再是继承admin，而是继承object
 class EmailVerifyRecordAdmin(object):
     # 配置后台我们需要显示的列
-    list_display = ['code', 'email','send_type', 'send_time']
+    list_display = ['code', 'email', 'send_type', 'send_time']
     # 配置搜索字段,不做时间搜索
     search_fields = ['code', 'email', 'send_type']
     # 配置筛选字段
     list_filter = ['code', 'email', 'send_type', 'send_time']
+
 
 # 创建banner的管理类
 class BannerAdmin(object):

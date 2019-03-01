@@ -1,10 +1,7 @@
-# encoding: utf-8
 from django import forms
 import re
 from operation.models import UserAsk
 
-__author__ = 'mtianyan'
-__date__ = '2018/1/12 0012 03:20'
 
 # 普通版本的form
 # class UserAskForm(forms.Form):
@@ -22,9 +19,9 @@ class UserAskForm(forms.ModelForm):
     # 手机号的正则表达式验证
     def clean_mobile(self):
         mobile = self.cleaned_data['mobile']
-        REGEX_MOBILE = "^1[358]\d{9}$|^147\d{8}$|^176\d{8}$"
+        REGEX_MOBILE = '^1[358]\d{9}$|^147\d{8}$|^176\d{8}$'
         p = re.compile(REGEX_MOBILE)
         if p.match(mobile):
             return mobile
         else:
-            raise forms.ValidationError(u"手机号码非法", code="mobile_invalid")
+            raise forms.ValidationError('手机号码非法', code='mobile_invalid')

@@ -1,9 +1,9 @@
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Create your views here.
-from django.views.generic.base import View
+from django.views.generic import View
+from django.core.exceptions import FieldDoesNotExist
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from courses.models import Course, CourseResource, Video
 from operation.models import UserFavorite, CourseComments, UserCourse
@@ -13,7 +13,7 @@ class CourseListView(View):
     def get(self, request):
         all_course = Course.objects.all()
         # 热门课程推荐
-        hot_courses = Course.objects.all().order_by("-students")[:3]
+        hot_courses = Course.objects.all().order_by('-students')[:3]
         # 搜索功能
         search_keywords = request.GET.get('keywords', '')
         if search_keywords:
@@ -25,12 +25,12 @@ class CourseListView(View):
         # 尝试获取前台get请求传递过来的page参数
         # 如果是不合法的配置参数默认返回第一页
         # 进行排序
-        sort = request.GET.get('sort', "")
+        sort = request.GET.get('sort', '')
         if sort:
-            if sort == "students":
-                all_course = all_course.order_by("-students")
-            elif sort == "hot":
-                all_course = all_course.order_by("-click_nums")
+            if sort == 'students':
+                all_course = all_course.order_by('-students')
+            elif sort == 'hot':
+                all_course = all_course.order_by('-click_nums')
         try:
             page = request.GET.get('page', 1)
         except PageNotAnInteger:
@@ -38,20 +38,23 @@ class CourseListView(View):
         # 这里指从allorg中取五个出来，每页显示5个
         p = Paginator(all_course, 6, request=request)
         courses = p.page(page)
-        return render(request, "course-list.html", {
-            "all_course": courses,
-            "sort": sort,
-            "hot_courses": hot_courses,
-            "search_keywords": search_keywords
-        })
+        context = {
+            'all_course': courses,
+            'sort': sort,
+            'hot_courses': hot_courses,
+            'search_keywords': search_keywords
+        }
+        return render(request, 'course-list.html', context=context)
 
 
 # 课程详情处理view
-
 class CourseDetailView(View):
     def get(self, request, course_id):
         # 此处的id为表默认为我们添加的值。
-        course = Course.objects.get(id = int(course_id))
+        try:
+            course = Course.objects.get(id = int(course_id))
+        except Course.DoesNotExist:
+            return render(request, '404.html')
         # 增加课程点击数
         course.click_nums += 1
         course.save()
@@ -73,17 +76,21 @@ class CourseDetailView(View):
             relate_courses = Course.objects.filter(tag=tag)[1:2]
         else:
             relate_courses = []
-        return  render(request, "course-detail.html", {
-            "course":course,
-            "relate_courses":relate_courses,
-            "has_fav_course":has_fav_course,
-            "has_fav_org":has_fav_org,
-        })
-# 处理课程章节信息页面的view
 
+        context = {
+            'course':course,
+            'relate_courses':relate_courses,
+            'has_fav_course':has_fav_course,
+            'has_fav_org':has_fav_org,
+        }
+        return render(request, 'course-detail.html', context=context)
+
+
+# 处理课程章节信息页面的view
 class CourseInfoView(LoginRequiredMixin, View):
     login_url = '/login/'
     redirect_field_name = 'next'
+
     def get(self, request, course_id):
         # 此处的id为表默认为我们添加的值。
         course = Course.objects.get(id=int(course_id))
@@ -106,21 +113,25 @@ class CourseInfoView(LoginRequiredMixin, View):
         # 取出所有课程id
         course_ids = [user_course.course_id for user_course in all_user_courses]
         # 获取学过该课程用户学过的其他课程
-        relate_courses = Course.objects.filter(id__in=course_ids).order_by("-click_nums").exclude(id =course.id)[:4]
-        # 是否收藏课程
-        return render(request, "course-video.html", {
-            "course": course,
-            "all_resources": all_resources,
-            "relate_courses":relate_courses,
-        })
+        relate_courses = Course.objects.filter(id__in=course_ids).order_by('-click_nums').exclude(id =course.id)[:4]
+
+        context = {
+            'course': course,
+            'all_resources': all_resources,
+            'relate_courses':relate_courses,
+        }
+        return render(request, 'course-video.html', context=context)
+
+
 class CommentsView(LoginRequiredMixin, View):
     login_url = '/login/'
     redirect_field_name = 'next'
+
     def get(self, request, course_id):
         # 此处的id为表默认为我们添加的值。
         course = Course.objects.get(id=int(course_id))
         all_resources = CourseResource.objects.filter(course=course)
-        all_comments = CourseComments.objects.filter(course=course).order_by("-add_time")
+        all_comments = CourseComments.objects.filter(course=course).order_by('-add_time')
         # 选出学了这门课的学生关系
         user_courses = UserCourse.objects.filter(course=course)
         # 从关系中取出user_id
@@ -130,23 +141,26 @@ class CommentsView(LoginRequiredMixin, View):
         # 取出所有课程id
         course_ids = [user_course.course_id for user_course in all_user_courses]
         # 获取学过该课程用户学过的其他课程
-        relate_courses = Course.objects.filter(id__in=course_ids).order_by("-click_nums").exclude(id=course.id)[:4]
+        relate_courses = Course.objects.filter(id__in=course_ids).order_by('-click_nums').exclude(id=course.id)[:4]
         # 是否收藏课程
-        return render(request, "course-comment.html", {
-            "course": course,
-            "all_resources": all_resources,
-            "all_comments":all_comments,
-            "relate_courses":relate_courses,
-        })
+
+        context = {
+            'course': course,
+            'all_resources': all_resources,
+            'all_comments':all_comments,
+            'relate_courses':relate_courses,
+        }
+        return render(request, 'course-comment.html', context=context)
+
 
 # ajax方式添加评论
 class AddCommentsView(View):
     def post(self, request):
         if not request.user.is_authenticated:
             # 未登录时返回json提示未登录，跳转到登录页面是在ajax中做的
-            return HttpResponse('{"status":"fail", "msg":"用户未登录"}', content_type='application/json')
-        course_id = request.POST.get("course_id", 0)
-        comments = request.POST.get("comments", "")
+            return HttpResponse("{'status':'fail', 'msg':'用户未登录'}", content_type='application/json')
+        course_id = request.POST.get('course_id', 0)
+        comments = request.POST.get('comments', '')
         if int(course_id) > 0 and comments:
             course_comments = CourseComments()
             # get只能取出一条数据，如果有多条抛出异常。没有数据也抛异常
@@ -157,13 +171,15 @@ class AddCommentsView(View):
             course_comments.comments = comments
             course_comments.user = request.user
             course_comments.save()
-            return HttpResponse('{"status":"success", "msg":"评论成功"}', content_type='application/json')
+            return JsonResponse("{'status':'success', 'msg':'评论成功'}")
         else:
-            return HttpResponse('{"status":"fail", "msg":"评论失败"}', content_type='application/json')
+            return JsonResponse("{'status':'fail', 'msg':'评论失败'}")
+
 
 class VideoPlayView(LoginRequiredMixin, View):
     login_url = '/login/'
     redirect_field_name = 'next'
+
     def get(self, request, video_id):
         # 此处的id为表默认为我们添加的值。
         video = Video.objects.get(id=int(video_id))
@@ -185,11 +201,13 @@ class VideoPlayView(LoginRequiredMixin, View):
         # 取出所有课程id
         course_ids = [user_course.course_id for user_course in all_user_courses]
         # 获取学过该课程用户学过的其他课程
-        relate_courses = Course.objects.filter(id__in=course_ids).order_by("-click_nums").exclude(id=course.id)[:4]
+        relate_courses = Course.objects.filter(id__in=course_ids).order_by('-click_nums').exclude(id=course.id)[:4]
         # 是否收藏课程
-        return render(request, "course-play.html", {
-            "course": course,
-            "all_resources": all_resources,
-            "relate_courses": relate_courses,
-            "video": video,
-        })
+
+        context = {
+            'course': course,
+            'all_resources': all_resources,
+            'relate_courses': relate_courses,
+            'video': video,
+        }
+        return render(request, 'course-play.html', context=context)

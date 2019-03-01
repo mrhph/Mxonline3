@@ -80,11 +80,6 @@
                                 </div>
                             </div>
                             {% endfor %}
-
-
-
-
-
                         </div>
                     </div>
                 <!--<div class="pageturn">-->
@@ -135,11 +130,6 @@
                             </dd>
                         </dl>
                         {% endfor %}
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -197,11 +187,8 @@ $('#jsRightBtn').on('click', function(){
                        "bdText":"授课教师-{{ teacher.name }}-mtianyan慕课小站",
                        "bdDesc": "我在#mtianyan慕课小站#发现了老师“{{ teacher.name }}”，对我们学习很有帮助，一起来看看吧",
                         "bdUrl": 'http://mxonline.mtianyan.cn{% url 'org:teacher_detail' teacher.id %}',
-
-
 		},
 ]
-
     }
 	//以下为js加载部分
 	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];

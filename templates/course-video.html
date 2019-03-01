@@ -78,7 +78,6 @@
                             <strong><i class="state-expand"></i>{{ lesson.name }}</strong>
                         </h3>
                         <ul class="video">
-
                             {% for video in lesson.video_set.get_queryset  %}
                             <li>
                                 <a target="_blank" href='{% url 'course:video_play' video.id %}' class="J-media-item studyvideo">{{ video.name }} ({{ video.learn_times }})
@@ -110,11 +109,11 @@
                     <div class="box mb40">
                         <h4>讲师提示</h4>
                         <div class="teacher-info">
-                            <a href="{% url 'org:teacher_detail' course.teacher.id  %}" target="_blank">
+                            <a href="{% url 'org:teacher_detail' course.teacher_id  %}" target="_blank">
                                 <img src='{{ MEDIA_URL }}{{ course.teacher.image }}' width='80' height='80' />
                             </a>
         <span class="tit">
-          <a href="{% url 'org:teacher_detail' course.teacher.id  %}" target="_blank">{{ course.teacher.name }}</a>
+          <a href="{% url 'org:teacher_detail' course.teacher_id %}" target="_blank">{{ course.teacher.name }}</a>
         </span>
                             <span class="job">{{ course.teacher.work_position }}</span>
                         </div>

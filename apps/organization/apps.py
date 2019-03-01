@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 class OrganizationConfig(AppConfig):
     name = 'organization'
-    verbose_name = u"机构信息"
+    verbose_name = '机构信息'

@@ -1,31 +1,14 @@
-# encoding: utf-8
-__author__ = 'mtianyan'
-__date__ = '2018/1/9 0009 20:10'
-
 from .models import Course, Lesson, Video, CourseResource
 import xadmin
 
-# Course的admin管理器
 
-
+# Course的xadmin管理器
 class CourseAdmin(object):
-    list_display = [
-        'name',
-        'desc',
-        'detail',
-        'degree',
-        'learn_times',
-        'students']
+    list_display = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students']
     search_fields = ['name', 'desc', 'detail', 'degree', 'students']
-    list_filter = [
-        'name',
-        'desc',
-        'detail',
-        'degree',
-        'learn_times',
-        'students']
+    list_filter = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students']
     # 富文本
-    style_fields = {"detail": "ueditor"}
+    style_fields = {'detail': 'ueditor'}
 
 
 class LessonAdmin(object):

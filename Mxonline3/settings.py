@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 sys.path.insert(0,os.path.join(BASE_DIR, 'extra_apps'))
 # Quick-start development settings - unsuitable for production
@@ -68,8 +69,7 @@ ROOT_URLCONF = 'Mxonline3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,7 +108,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -144,19 +143,18 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
 # 发送邮件的setting设置
-EMAIL_HOST = "smtp.qq.com"
+EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = "mxonline@mtianyan.cn"
-EMAIL_HOST_PASSWORD = "ystfiwntwmonjebe"
-EMAIL_USE_TLS= True
-EMAIL_FROM = "mxonline@mtianyan.cn"
+EMAIL_HOST_USER = 'mrhphv@163.com'
+EMAIL_HOST_PASSWORD = 'hph1314'
+EMAIL_USE_TLS = True
+EMAIL_FROM = 'mrhphv@163.com'
 
 # 设置我们上传文件的路径
 MEDIA_URL = '/media/'
