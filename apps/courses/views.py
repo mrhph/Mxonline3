@@ -3,7 +3,6 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
-from django.core.exceptions import FieldDoesNotExist
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from courses.models import Course, CourseResource, Video
 from operation.models import UserFavorite, CourseComments, UserCourse
@@ -19,8 +18,11 @@ class CourseListView(View):
         if search_keywords:
             # 在name字段进行操作,做like语句的操作。i代表不区分大小写
             # or操作使用Q
-            all_course = all_course.filter(Q(name__icontains=search_keywords) | Q(desc__icontains=search_keywords) | Q(
-                detail__icontains=search_keywords))
+            all_course = all_course.filter(
+                Q(name__icontains=search_keywords)
+                | Q(desc__icontains=search_keywords)
+                | Q(detail__icontains=search_keywords)
+            )
         # 对课程进行分页
         # 尝试获取前台get请求传递过来的page参数
         # 如果是不合法的配置参数默认返回第一页
@@ -52,7 +54,7 @@ class CourseDetailView(View):
     def get(self, request, course_id):
         # 此处的id为表默认为我们添加的值。
         try:
-            course = Course.objects.get(id = int(course_id))
+            course = Course.objects.get(id=int(course_id))
         except Course.DoesNotExist:
             return render(request, '404.html')
         # 增加课程点击数
@@ -78,10 +80,10 @@ class CourseDetailView(View):
             relate_courses = []
 
         context = {
-            'course':course,
-            'relate_courses':relate_courses,
-            'has_fav_course':has_fav_course,
-            'has_fav_org':has_fav_org,
+            'course': course,
+            'relate_courses': relate_courses,
+            'has_fav_course': has_fav_course,
+            'has_fav_org': has_fav_org,
         }
         return render(request, 'course-detail.html', context=context)
 
@@ -118,7 +120,7 @@ class CourseInfoView(LoginRequiredMixin, View):
         context = {
             'course': course,
             'all_resources': all_resources,
-            'relate_courses':relate_courses,
+            'relate_courses': relate_courses,
         }
         return render(request, 'course-video.html', context=context)
 
@@ -147,8 +149,8 @@ class CommentsView(LoginRequiredMixin, View):
         context = {
             'course': course,
             'all_resources': all_resources,
-            'all_comments':all_comments,
-            'relate_courses':relate_courses,
+            'all_comments': all_comments,
+            'relate_courses': relate_courses,
         }
         return render(request, 'course-comment.html', context=context)
 

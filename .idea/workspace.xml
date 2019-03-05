@@ -3,64 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="81620384-a96b-4217-a47c-ab354458db82" name="Default" comment="修复github语言误显示">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mxonline3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mxonline3/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mxonline3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mxonline3/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/courses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operation/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operation/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operation/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operation/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operation/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operation/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operation/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/utils/email_send.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/utils/email_send.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/utils/mixin_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/utils/mixin_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/batch.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/batch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/details.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/editable.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/editable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/export.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/export.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/images.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/inline.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/inline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/passwords.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/passwords.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/relfield.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/relfield.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/plugins/ueditor.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/plugins/ueditor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/css/xadmin.main.css" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/css/xadmin.main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/base_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/base_site.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/blocks/comm.top.setlang.html" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/blocks/comm.top.setlang.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/templatetags/xadmin_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/templatetags/xadmin_tags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/views/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/views/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/views/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/views/dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/views/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/views/delete.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/views/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/views/edit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/views/list.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/views/list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/views/website.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/views/website.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/widgets.py" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/widgets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/course-play.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course-play.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/course-video.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course-video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/teacher-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/teacher-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +39,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/courses/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="161">
               <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
               <folding>
                 <element signature="e#0#125#0" expanded="true" />
@@ -102,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/courses/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+            <state relative-caret-position="-939">
+              <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -115,10 +61,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://E:/ENVS/mx/Lib/site-packages/django/core/exceptions.py">
+        <entry file="file://$PROJECT_DIR$/Pipfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3803">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="207">
+              <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Pipfile.lock">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -126,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mxonline3/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="56" column="52" lean-forward="true" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
+            <state relative-caret-position="4">
+              <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
               <folding>
                 <element signature="e#634#666#0" expanded="true" />
               </folding>
@@ -138,38 +93,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mxonline3/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+            <state relative-caret-position="-732">
+              <caret line="55" column="37" lean-forward="true" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
               <folding>
                 <element signature="e#309#319#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/403.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/404.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -216,6 +144,7 @@
       <find>verbose_name=</find>
       <find>u'</find>
       <find>&quot;</find>
+      <find>try</find>
     </findStrings>
     <replaceStrings>
       <replace>{% url '' %}</replace>
@@ -237,7 +166,6 @@
         <option value="$PROJECT_DIR$/templates/usercenter-base.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/org_base.html" />
-        <option value="$PROJECT_DIR$/templates/404.html" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/templates/500.html" />
         <option value="$PROJECT_DIR$/templates/403.html" />
@@ -245,7 +173,6 @@
         <option value="$PROJECT_DIR$/templates/course-detail.html" />
         <option value="$PROJECT_DIR$/extra_apps/xadmin/plugins/filters.py" />
         <option value="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/base_site.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/Mxonline3/__init__.py" />
         <option value="$PROJECT_DIR$/apps/courses/models.py" />
         <option value="$PROJECT_DIR$/apps/courses/urls.py" />
@@ -278,12 +205,14 @@
         <option value="$PROJECT_DIR$/templates/course-play.html" />
         <option value="$PROJECT_DIR$/apps/utils/email_send.py" />
         <option value="$PROJECT_DIR$/extra_apps/xadmin/views/website.py" />
-        <option value="$PROJECT_DIR$/Mxonline3/urls.py" />
         <option value="$PROJECT_DIR$/apps/courses/views.py" />
+        <option value="$PROJECT_DIR$/Mxonline3/urls.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/404.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="56" />
     <option name="y" value="13" />
     <option name="width" value="1263" />
@@ -309,12 +238,6 @@
               <item name="Mxonline3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mxonline3" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mxonline3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mxonline3" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="courses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Mxonline3" type="b2602c69:ProjectViewProjectNode" />
@@ -425,7 +348,8 @@
       <workItem from="1551267197025" duration="6206000" />
       <workItem from="1551353868455" duration="1156000" />
       <workItem from="1551401635915" duration="3120000" />
-      <workItem from="1551439093605" duration="4068000" />
+      <workItem from="1551439093605" duration="4211000" />
+      <workItem from="1551784319685" duration="902000" />
     </task>
     <task id="LOCAL-00001" summary="7-6完成列表筛选以及排序功能">
       <created>1515698110311</created>
@@ -571,7 +495,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34942000" />
+    <option name="totallyTimeSpent" value="35987000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -583,15 +507,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="13" width="1263" height="788" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21197008" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19591528" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1984127" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1984127" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38903394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -636,23 +560,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="修复github语言误显示" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/ENVS/mx/Lib/site-packages/django/shortcuts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-732">
@@ -906,27 +813,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/organization/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6854">
-          <caret line="306" column="34" selection-start-line="306" selection-start-column="34" selection-end-line="306" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/ENVS/mx/Lib/site-packages/django/contrib/admin/sites.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="386" column="26" selection-start-line="386" selection-start-column="26" selection-end-line="386" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mxonline3/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="56" column="52" lean-forward="true" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
-          <folding>
-            <element signature="e#634#666#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -942,40 +832,9 @@
         <state relative-caret-position="-897" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mxonline3/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
-          <folding>
-            <element signature="e#309#319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/403.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/courses/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="161">
           <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
           <folding>
             <element signature="e#0#125#0" expanded="true" />
@@ -983,20 +842,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/organization/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6854">
+          <caret line="306" column="34" selection-start-line="306" selection-start-column="34" selection-end-line="306" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://E:/ENVS/mx/Lib/site-packages/django/core/exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3803">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="23">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/403.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2461">
+          <caret line="107" column="24" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mxonline3/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-732">
+          <caret line="55" column="37" lean-forward="true" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+          <folding>
+            <element signature="e#309#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mxonline3/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+          <folding>
+            <element signature="e#634#666#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/courses/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+        <state relative-caret-position="-939">
+          <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
         </state>
       </provider>
     </entry>

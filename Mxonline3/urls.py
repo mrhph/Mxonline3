@@ -47,7 +47,7 @@ urlpatterns = [
     # 忘记密码
     path('forget/', ForgetPwdView.as_view(), name='forget_pwd'),
 
-    # 重置密码urlc ：用来接收来自邮箱的重置链接
+    # 重置密码url：用来接收来自邮箱的重置链接
     re_path('reset/(?P<active_code>.*)/', ResetView.as_view(), name='reset_pwd'),
 
     # 修改密码url; 用于passwordreset页面提交表单
