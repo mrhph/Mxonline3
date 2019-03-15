@@ -145,16 +145,16 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 # 发送邮件的setting设置
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'mrhphv@163.com'
+EMAIL_HOST_USER = '15565145853@163.com'
 EMAIL_HOST_PASSWORD = 'hph1314'
 EMAIL_USE_TLS = True
-EMAIL_FROM = 'mrhphv@163.com'
+EMAIL_FROM = '15565145853@163.com'
 
 # 设置我们上传文件的路径
 MEDIA_URL = '/media/'

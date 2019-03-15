@@ -1,10 +1,7 @@
 from random import Random
-
-# 导入Django自带的邮件模块
 from django.core.mail import send_mail, EmailMessage
-# 导入setting中发送邮件的配置
 from Mxonline3.settings import EMAIL_FROM
-# 发送html格式的邮件:
+# 发送html格式的邮件
 from django.template import loader
 
 from users.models import EmailVerifyRecord
@@ -32,10 +29,10 @@ def send_register_eamil(email, send_type='register'):
         code = random_str(4)
     else:
         code = random_str(16)
+
     email_record.code = code
     email_record.email = email
     email_record.send_type = send_type
-
     email_record.save()
 
     # 定义邮件内容:
@@ -73,6 +70,7 @@ def send_register_eamil(email, send_type='register'):
         msg = EmailMessage(email_title, email_body, EMAIL_FROM, [email])
         msg.content_subtype = 'html'
         send_status = msg.send()
+
     elif send_type == 'update_email':
         email_title = 'mooc 修改邮箱验证码'
         email_body = loader.render_to_string(

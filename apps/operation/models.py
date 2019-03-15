@@ -6,7 +6,7 @@ from users.models import UserProfile
 from courses.models import Course
 
 
-# 用户我要学习表单
+# 用户添加学习
 class UserAsk(models.Model):
     name = models.CharField('姓名', max_length=20)
     mobile = models.CharField('手机', max_length=11)
@@ -14,6 +14,7 @@ class UserAsk(models.Model):
     add_time = models.DateTimeField('添加时间', default=datetime.now)
 
     class Meta:
+        db_table = 'user_ask'
         verbose_name = '用户咨询'
         verbose_name_plural = verbose_name
 
@@ -30,6 +31,7 @@ class CourseComments(models.Model):
     add_time = models.DateTimeField('评论时间', default=datetime.now)
 
     class Meta:
+        db_table = 'course_comments'
         verbose_name = '课程评论'
         verbose_name_plural = verbose_name
 
@@ -52,13 +54,14 @@ class UserFavorite(models.Model):
     # org = models.ForeignKey()
     # fav_type =
 
-    # 直接保存用户的id.
+    # 保存收藏的id.
     fav_id = models.IntegerField(default=0)
     # 表明收藏的是哪种类型。
     fav_type = models.IntegerField('收藏类型', choices=TYPE_CHOICES, default=1)
     add_time = models.DateTimeField('评论时间', default=datetime.now)
 
     class Meta:
+        db_table = 'user_favorite'
         verbose_name = '用户收藏'
         verbose_name_plural = verbose_name
 
@@ -80,6 +83,7 @@ class UserMessage(models.Model):
     add_time = models.DateTimeField('添加时间', default=datetime.now)
 
     class Meta:
+        db_table = 'user_message'
         verbose_name = '用户消息'
         verbose_name_plural = verbose_name
 
@@ -95,6 +99,7 @@ class UserCourse(models.Model):
     add_time = models.DateTimeField('添加时间', default=datetime.now)
 
     class Meta:
+        db_table = 'user_course'
         verbose_name = '用户课程'
         verbose_name_plural = verbose_name
 

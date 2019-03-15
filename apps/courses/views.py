@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
@@ -98,16 +98,16 @@ class CourseInfoView(LoginRequiredMixin, View):
         course = Course.objects.get(id=int(course_id))
 
         # 查询用户是否开始学习了该课，如果还未学习则，加入用户课程表
-        user_courses = UserCourse.objects.filter(user= request.user, course= course)
+        user_courses = UserCourse.objects.filter(user=request.user, course=course)
         if not user_courses:
-            user_course = UserCourse(user= request.user, course= course)
-            course.students +=1
+            user_course = UserCourse(user=request.user, course=course)
+            course.students += 1
             course.save()
             user_course.save()
         # 查询课程资源
         all_resources = CourseResource.objects.filter(course=course)
         # 选出学了这门课的学生关系
-        user_courses = UserCourse.objects.filter(course= course)
+        user_courses = UserCourse.objects.filter(course=course)
         # 从关系中取出user_id
         user_ids = [user_course.user_id for user_course in user_courses]
         # 这些用户学了的课程,外键会自动有id，取到字段
@@ -115,7 +115,7 @@ class CourseInfoView(LoginRequiredMixin, View):
         # 取出所有课程id
         course_ids = [user_course.course_id for user_course in all_user_courses]
         # 获取学过该课程用户学过的其他课程
-        relate_courses = Course.objects.filter(id__in=course_ids).order_by('-click_nums').exclude(id =course.id)[:4]
+        relate_courses = Course.objects.filter(id__in=course_ids).order_by('-click_nums').exclude(id=course.id)[:4]
 
         context = {
             'course': course,
@@ -160,22 +160,22 @@ class AddCommentsView(View):
     def post(self, request):
         if not request.user.is_authenticated:
             # 未登录时返回json提示未登录，跳转到登录页面是在ajax中做的
-            return HttpResponse("{'status':'fail', 'msg':'用户未登录'}", content_type='application/json')
+            return JsonResponse("{'status':'fail', 'msg':'用户未登录'}")
         course_id = request.POST.get('course_id', 0)
         comments = request.POST.get('comments', '')
         if int(course_id) > 0 and comments:
             course_comments = CourseComments()
             # get只能取出一条数据，如果有多条抛出异常。没有数据也抛异常
             # filter取一个列表出来，queryset。没有数据返回空的queryset不会抛异常
-            course = Course.objects.get(id = int(course_id))
+            course = Course.objects.get(id=int(course_id))
             # 外键存入要存入对象
             course_comments.course = course
             course_comments.comments = comments
             course_comments.user = request.user
             course_comments.save()
-            return JsonResponse("{'status':'success', 'msg':'评论成功'}")
+            return JsonResponse({'status': 'success', 'msg': '评论成功'})
         else:
-            return JsonResponse("{'status':'fail', 'msg':'评论失败'}")
+            return JsonResponse({'status': 'fail', 'msg': '评论失败'})
 
 
 class VideoPlayView(LoginRequiredMixin, View):

@@ -22,8 +22,11 @@ class OrgView(View):
         if search_keywords:
             # 在name字段进行操作,做like语句的操作。i代表不区分大小写
             # or操作使用Q
-            all_orgs = all_orgs.filter(Q(name__icontains=search_keywords) | Q(desc__icontains=search_keywords) | Q(
-                address__icontains=search_keywords))
+            all_orgs = all_orgs.filter(
+                Q(name__icontains=search_keywords)
+                | Q(desc__icontains=search_keywords)
+                | Q(address__icontains=search_keywords)
+            )
         # 取出所有的城市
         all_city = CityDict.objects.all()
 
@@ -81,9 +84,9 @@ class AddUserAskView(View):
         userask_form = UserAskForm(request.POST)
         if userask_form.is_valid():
             user_ask = userask_form.save(commit=True)
-            return JsonResponse("{'status':'success'}")
+            return JsonResponse({'status':'success'})
         else:
-            return JsonResponse("{'status':'fail', 'msg':'您的字段有错误,请检查'}")
+            return JsonResponse({'status':'fail', 'msg':'您的字段有错误,请检查'})
 
 
 class OrgHomeView(View):
@@ -157,8 +160,8 @@ class OrgDescView(View):
 
         context = {
             'course_org': course_org,
-            'current_page':current_page,
-            'has_fav':has_fav,
+            'current_page': current_page,
+            'has_fav': has_fav,
         }
         return render(request, 'org-detail-desc.html', context=context)
 
@@ -201,14 +204,14 @@ class AddFavView(View):
         # 判断用户是否登录:即使没登录会有一个匿名的user
         if not request.user.is_authenticated:
             # 未登录时返回json提示未登录，跳转到登录页面是在ajax中做的
-            return JsonResponse("{'status':'fail', 'msg':'用户未登录'}")
+            return JsonResponse({'status': 'fail', 'msg': '用户未登录'})
         exist_records = UserFavorite.objects.filter(user=request.user, fav_id=int(id), fav_type=int(type))
         if exist_records:
             # 如果记录已经存在， 则表示用户取消收藏
             exist_records.delete()
             if int(type) == 1:
                 course = Course.objects.get(id=int(id))
-                course.fav_nums -=1
+                course.fav_nums -= 1
                 if course.fav_nums < 0:
                     course.fav_nums = 0
                 course.save()
@@ -225,7 +228,7 @@ class AddFavView(View):
                     teacher.fav_nums = 0
                 teacher.save()
 
-            return JsonResponse("{'status':'success', 'msg':'收藏'}")
+            return JsonResponse({'status': 'success', 'msg': '收藏'})
         else:
             user_fav = UserFavorite()
             # 过滤掉未取到fav_id type的默认情况
@@ -246,9 +249,9 @@ class AddFavView(View):
                     teacher = Teacher.objects.get(id=int(id))
                     teacher.fav_nums += 1
                     teacher.save()
-                return JsonResponse("{'status':'success', 'msg':'已收藏'}")
+                return JsonResponse({'status': 'success', 'msg': '已收藏'})
             else:
-                return JsonResponse("{'status':'fail', 'msg':'收藏出错'}")
+                return JsonResponse("{'status': 'fail', 'msg': '收藏出错'}")
 
 
 # 课程讲师列表页
@@ -264,8 +267,10 @@ class TeacherListView(View):
             if search_keywords:
                 # 在name字段进行操作,做like语句的操作。i代表不区分大小写
                 # or操作使用Q
-                all_teacher = all_teacher.filter(Q(name__icontains=search_keywords)
-                                                 | Q(work_company__icontains=search_keywords))
+                all_teacher = all_teacher.filter(
+                    Q(name__icontains=search_keywords)
+                    | Q(work_company__icontains=search_keywords)
+                )
 
             # 排行榜讲师
             rank_teacher = Teacher.objects.all().order_by('-fav_nums')[:5]
@@ -295,25 +300,25 @@ class TeacherListView(View):
 # 教师详情页面
 class TeacherDetailView(View):
     def get(self, request, teacher_id):
-        teacher = Teacher.objects.get(id = int(teacher_id))
-        teacher.click_nums +=1
+        teacher = Teacher.objects.get(id=int(teacher_id))
+        teacher.click_nums += 1
         teacher.save()
         all_course = teacher.course_set.all()
         # 排行榜讲师
         rank_teacher = Teacher.objects.all().order_by('-fav_nums')[:5]
 
         has_fav_teacher = False
-        if UserFavorite.objects.filter(user=request.user, fav_type=3, fav_id= teacher.id):
+        if UserFavorite.objects.filter(user=request.user, fav_type=3, fav_id=teacher.id):
             has_fav_teacher = True
         has_fav_org = False
-        if UserFavorite.objects.filter(user=request.user, fav_type=2, fav_id= teacher.org.id):
+        if UserFavorite.objects.filter(user=request.user, fav_type=2, fav_id=teacher.org.id):
             has_fav_org = True
 
         context = {
-            'teacher':teacher,
-            'all_course':all_course,
-            'rank_teacher':rank_teacher,
-            'has_fav_teacher':has_fav_teacher,
-            'has_fav_org':has_fav_org,
+            'teacher': teacher,
+            'all_course': all_course,
+            'rank_teacher': rank_teacher,
+            'has_fav_teacher': has_fav_teacher,
+            'has_fav_org': has_fav_org,
         }
         return render(request, 'teacher-detail.html', context=context)

@@ -19,7 +19,6 @@ from django.views.generic import View
 from .forms import LoginForm, RegisterForm, ActiveForm, ForgetForm, ModifyPwdForm, UploadImageForm, UserInfoForm
 
 
-
 # 激活用户的view
 class ActiveUserView(View):
     def get(self, request, active_code):
@@ -96,7 +95,9 @@ class CustomBackend(ModelBackend):
         try:
             # 不希望用户存在两个，get只能有一个。两个是get失败的一种原因 Q为使用并集查询
             user = UserProfile.objects.get(
-                Q(username=username) | Q(email=username))
+                Q(username=username)
+                | Q(email=username)
+            )
             # django的后台中密码加密：所以不能password==password
             # UserProfile继承的AbstractUser中有def check_password(self,
             # raw_password):
@@ -280,11 +281,10 @@ class UserInfoView(LoginRequiredMixin, View):
         user_info_form = UserInfoForm(request.POST, instance=request.user)
         if user_info_form.is_valid():
             user_info_form.save()
-            return JsonResponse("{'status':'success'}")
+            return JsonResponse({'status': 'success'})
         else:
             # 通过json的dumps方法把字典转换为json字符串
-            return JsonResponse(
-                json.dumps(user_info_form.errors))
+            return JsonResponse(json.dumps(user_info_form.errors))
 
 
 # 用户上传图片的view:用于修改头像
@@ -302,9 +302,9 @@ class UploadImageView(LoginRequiredMixin, View):
             # image = image_form.cleaned_data['image']
             # request.user.image = image
             # request.user.save()
-            return JsonResponse("{'status': 'success'}")
+            return JsonResponse({'status': 'success'})
         else:
-            return JsonResponse("{'status': 'fail'}")
+            return JsonResponse({'status': 'fail'})
 
 
 # 在个人中心修改用户密码
@@ -319,7 +319,7 @@ class UpdatePwdView(LoginRequiredMixin, View):
             pwd2 = request.POST.get('password2', '')
             # 如果两次密码不相等，返回错误信息
             if pwd1 != pwd2:
-                return JsonResponse("{'status': 'fail', 'msg': '密码不一致'}")
+                return JsonResponse({'status': 'fail', 'msg': '密码不一致'})
             # 如果密码一致
             user = request.user
             # 加密成密文
@@ -341,9 +341,9 @@ class SendEmailCodeView(LoginRequiredMixin, View):
 
         # 不能是已注册的邮箱
         if UserProfile.objects.filter(email=email):
-            return JsonResponse("{'email': '邮箱已经存在'}")
+            return JsonResponse({'email': '邮箱已经存在'})
         send_register_eamil(email, 'update_email')
-        return JsonResponse("{'status': 'success'}")
+        return JsonResponse({'status': 'success'})
 
 
 # 修改邮箱的view:
@@ -363,7 +363,7 @@ class UpdateEmailView(LoginRequiredMixin, View):
             user.save()
             return JsonResponse("{'status': 'success'}")
         else:
-            return JsonResponse("{'email': '验证码无效'}")
+            return JsonResponse({'email': '验证码无效'})
 
 
 # 个人中心页我的课程
@@ -383,7 +383,7 @@ class MyFavOrgView(LoginRequiredMixin, View):
 
     def get(self, request):
         org_list = []
-        fav_orgs= UserFavorite.objects.filter(user=request.user, fav_type=2)
+        fav_orgs = UserFavorite.objects.filter(user=request.user, fav_type=2)
         # 上面的fav_orgs只是存放了id。我们还需要通过id找到机构对象
         for fav_org in fav_orgs:
             # 取出fav_id也就是机构的id。
