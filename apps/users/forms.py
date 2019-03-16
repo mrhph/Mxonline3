@@ -1,61 +1,51 @@
 from users.models import UserProfile
-
-# 引入Django表单
 from django import forms
-# 引入验证码field
-from captcha.fields import CaptchaField
+from captcha.fields import CaptchaField  # 验证码
 
 
-# 登录表单验证
 class LoginForm(forms.Form):
-    # 用户名密码不能为空
+    """登录表单验证"""
     username = forms.CharField(required=True)
-    # 密码不能小于5位
+    # min_length定义输入值小于5位
     password = forms.CharField(required=True, min_length=5)
 
 
-# 验证码form & 注册表单form
 class RegisterForm(forms.Form):
-    # 此处email与前端name需保持一致。
+    """注册表单"""
     email = forms.EmailField(required=True)
-    # 密码不能小于5位
     password = forms.CharField(required=True, min_length=5)
     # 应用验证码 自定义错误输出key必须与异常一样
     captcha = CaptchaField(error_messages={'invalid': '验证码错误'})
 
 
-# 激活时验证码实现
 class ActiveForm(forms.Form):
+    """激活时验证码"""
     # 激活时不对邮箱密码做验证
     # 应用验证码 自定义错误输出key必须与异常一样
     captcha = CaptchaField(error_messages={'invalid': '验证码错误'})
 
 
-# 忘记密码实现
 class ForgetForm(forms.Form):
-    # 此处email与前端name需保持一致。
+    """忘记密码"""
     email = forms.EmailField(required=True)
-    # 应用验证码 自定义错误输出key必须与异常一样
     captcha = CaptchaField(error_messages={'invalid': '验证码错误'})
 
 
-# 重置密码form实现
 class ModifyPwdForm(forms.Form):
-    # 密码不能小于5位
+    """重置密码form"""
     password1 = forms.CharField(required=True, min_length=5)
-    # 密码不能小于5位
     password2 = forms.CharField(required=True, min_length=5)
 
 
-# 用于文件上传，修改头像
 class UploadImageForm(forms.ModelForm):
+    """文件上传，修改头像"""
     class Meta:
         model = UserProfile
         fields = ['image']
 
 
-# 用于个人中心修改个人信息
 class UserInfoForm(forms.ModelForm):
+    """个人中心修改个人信息"""
     class Meta:
         model = UserProfile
         fields = ['nick_name', 'gender', 'birthday', 'address', 'mobile']

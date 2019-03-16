@@ -1,12 +1,15 @@
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views.generic import View
+from django.template.loader import render_to_string
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+
 from courses.models import Course
 from operation.models import UserFavorite
 from organization.forms import UserAskForm
 from .models import CourseOrg, CityDict, Teacher
-from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 class OrgView(View):
@@ -300,19 +303,25 @@ class TeacherListView(View):
 # 教师详情页面
 class TeacherDetailView(View):
     def get(self, request, teacher_id):
-        teacher = Teacher.objects.get(id=int(teacher_id))
+        try:
+            teacher = Teacher.objects.get(id=teacher_id)
+        except Teacher.DoesNotExist:
+            # return render(request, '404html')
+            return HttpResponse(render_to_string('404.html'), content_type='text/html')
         teacher.click_nums += 1
         teacher.save()
+
         all_course = teacher.course_set.all()
         # 排行榜讲师
-        rank_teacher = Teacher.objects.all().order_by('-fav_nums')[:5]
+        rank_teacher = Teacher.objects.order_by('-fav_nums')[:5]
 
-        has_fav_teacher = False
-        if UserFavorite.objects.filter(user=request.user, fav_type=3, fav_id=teacher.id):
-            has_fav_teacher = True
-        has_fav_org = False
-        if UserFavorite.objects.filter(user=request.user, fav_type=2, fav_id=teacher.org.id):
-            has_fav_org = True
+        has_fav_teacher = False  # 是否收藏讲师
+        has_fav_org = False  # 是否收藏机构
+        if request.user.is_authenticated:  # 防止未登陆时，request.user报错
+            if UserFavorite.objects.filter(user=request.user, fav_type=3, fav_id=teacher_id):
+                has_fav_teacher = True
+            if UserFavorite.objects.filter(user=request.user, fav_type=2, fav_id=teacher.org.id):
+                has_fav_org = True
 
         context = {
             'teacher': teacher,

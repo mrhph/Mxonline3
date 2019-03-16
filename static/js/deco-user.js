@@ -1,4 +1,4 @@
-//修改个人中心邮箱验证码
+//个人中心发送邮箱验证码
 function sendCodeChangeEmail($btn){
     var verify = verifyDialogSubmit(
         [
@@ -34,7 +34,6 @@ function sendCodeChangeEmail($btn){
             $btn.removeAttr("disabled");
         }
     });
-
 }
 //个人资料邮箱修改
 function changeEmailSubmit($btn){
@@ -193,6 +192,4 @@ $(function(){
             }
         });
     });
-
-
 });

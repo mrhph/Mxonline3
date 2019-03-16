@@ -122,8 +122,8 @@
                                         <img src='{{ MEDIA_URL }}{{ course.teacher.image }}' width='80' height='80' />
                                     </a>
                                     <span class="tit">
-          <a href="{% url 'org:teacher_detail' course.teacher.id  %}" target="_blank">{{ course.teacher.name }}</a>
-        </span>
+                                        <a href="{% url 'org:teacher_detail' course.teacher.id  %}" target="_blank">{{ course.teacher.name }}</a>
+                                    </span>
                                     <span class="job">{{ course.teacher.work_position }}</span>
                                 </div>
                                 <div class="course-info-tip">

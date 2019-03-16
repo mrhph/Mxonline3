@@ -1,8 +1,8 @@
 {% extends 'usercenter-base.html' %}
-{% block title %} 我的课程 | mtianyan慕课小站{% endblock %}
+{% block title %} 我的课程 | 慕课小站{% endblock %}
 
 {% block custom_bread %}
-        <section>
+    <section>
         <div class="wp">
             <ul  class="crumbs">
                 <li><a href="{% url 'index' %}">首页</a>></li>
@@ -14,18 +14,17 @@
 {% endblock %}
 
 {% block right_content %}
-        <div class="right" >
-		<div class="personal_des Releasecont">
-			<div class="head">
-				<h1>我的课程</h1>
-			</div>
-		</div>
-		<div class="personal_des permessage">
-			<div class="companycenter">
-				<div class="group_list brief">
-
+    <div class="right" >
+        <div class="personal_des Releasecont">
+            <div class="head">
+                <h1>我的课程</h1>
+            </div>
+        </div>
+        <div class="personal_des permessage">
+            <div class="companycenter">
+                <div class="group_list brief">
                     {% for user_course in user_courses %}
-                    <div class="module1_5 box">
+                        <div class="module1_5 box">
                             <a href="{% url 'course:course_detail' user_course.course.id %}">
                                 <img width="214" height="190" class="scrollLoading" src="{{ MEDIA_URL }}{{ user_course.course.image }}"/>
                             </a>
@@ -39,10 +38,9 @@
                                 <span class="star fr  notlogin" data-favid="{{ user_course.course.id }}">{{ user_course.course.fav_nums }}</span>
                             </div>
                         </div>
-{% endfor %}
-
-				</div>
-			</div>
-		</div>
-	</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

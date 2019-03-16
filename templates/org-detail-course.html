@@ -1,16 +1,16 @@
 {% extends 'org_base.html' %}
 {% block page_path %}机构课程{% endblock %}
-{% block title %}机构课程详情页 | mtianyan慕课小站{% endblock %}
+{% block title %}机构课程详情页 | GMOOC慕课小站{% endblock %}
 {% load staticfiles %}
 {% block right_form %}
-<div class="right companycenter layout" >
-		<div class="head">
-			<h1>机构课程</h1>
-		</div>
-		<div class="brief group_list">
+    <div class="right companycenter layout" >
+        <div class="head">
+            <h1>机构课程</h1>
+        </div>
+        <div class="brief group_list">
 
             {% for course in all_courses %}
-                            <div class="module1_5 box">
+                <div class="module1_5 box">
                     <a class="comp-img-box" href="{% url 'course:course_detail' course.id %}">
 
                         <img width="214" height="195" src="{{ MEDIA_URL }}{{ course.image }}"/>
@@ -22,24 +22,18 @@
                     </div>
                     <div class="bottom">
                         <span class="fl">{{ course_org.name }}</span>
-                         <span class="star fr  notlogin
+                        <span class="star fr  notlogin
                             " data-favid="13" data-fav-type="4">
                         {{ course.fav_nums }}
                         </span>
                     </div>
                 </div>
             {% endfor %}
-            
-            
-
-
-
-
-		</div>
-			<div class="pageturn">
-                <ul class="pagelist">
-                    <li class="active"><a href="?page=1">1</a></li>
-                </ul>
-            </div>
-	</div>
+        </div>
+        <div class="pageturn">
+            <ul class="pagelist">
+                <li class="active"><a href="?page=1">1</a></li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

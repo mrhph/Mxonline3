@@ -121,7 +121,6 @@ function login_form_submit(){
             $jsLoginBtn.removeAttr("disabled");
         }
     });
-
 }
 
 
@@ -353,7 +352,7 @@ $(function() {
     });
 
     //邮箱注册
-    $('#jsEmailRegBtn').on('click',function(){
+    $('#jsEmailRegBtn').on('click', function(){
         register_form_submit(this,'emailReg');
     });
     $("#email_register_form").keydown(function(event){
@@ -394,8 +393,6 @@ $(function() {
             error:function(){
                 zy_str="验证邮件发送失败";
             }
-
          });
 	});
-
 });

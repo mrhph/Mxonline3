@@ -47,8 +47,6 @@
                                     {% for user_course in course.usercourse_set.get_queryset|slice:":5"%}
                                         <span class="pic"><img width="40" height="40" src="{{ MEDIA_URL }}{{ user_course.user.image }}"/></span>
                                     {% endfor %}
-
-
                                 </li>
                             </ul>
                             <div class="btns">
@@ -149,11 +147,6 @@
                                 </dd>
                             </dl>
                         {% endfor %}
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -196,8 +189,6 @@
         $('#jsRightBtn').on('click', function(){
             add_fav($(this), {{ course.course_org.id }}, 2);
         });
-
-
     </script>
 
 {% endblock %}
