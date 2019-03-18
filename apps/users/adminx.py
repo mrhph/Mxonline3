@@ -1,15 +1,13 @@
-from courses.models import Course, Video, Lesson, CourseResource
-
 import xadmin
+# 分组，权限
 from django.contrib.auth.models import Group, Permission
-
-from operation.models import CourseComments, UserFavorite, UserMessage, UserCourse, UserAsk
-from organization.models import CityDict, Teacher, CourseOrg
 from xadmin.models import Log
-
 # 和X admin的view绑定
 from xadmin import views
 
+from courses.models import Course, Video, Lesson, CourseResource
+from operation.models import CourseComments, UserFavorite, UserMessage, UserCourse, UserAsk
+from organization.models import CityDict, Teacher, CourseOrg
 from .models import EmailVerifyRecord, Banner, UserProfile
 
 
@@ -73,9 +71,9 @@ class EmailVerifyRecordAdmin(object):
 
 # 创建banner的管理类
 class BannerAdmin(object):
-    list_display = ['title', 'image', 'url','index', 'add_time']
-    search_fields = ['title', 'image', 'url','index']
-    list_filter = ['title', 'image', 'url','index', 'add_time']
+    list_display = ['title', 'image', 'url', 'index', 'add_time']
+    search_fields = ['title', 'image', 'url', 'index']
+    list_filter = ['title', 'image', 'url', 'index', 'add_time']
 
 
 # 将model与admin管理器进行关联注册

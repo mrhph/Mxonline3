@@ -1,5 +1,6 @@
-from .models import Course, Lesson, Video, CourseResource
 import xadmin
+
+from .models import Course, Lesson, Video, CourseResource
 
 
 # Course的xadmin管理器
@@ -14,7 +15,6 @@ class CourseAdmin(object):
 class LessonAdmin(object):
     list_display = ['course', 'name', 'add_time']
     search_fields = ['course', 'name']
-    # __name代表使用外键中name字段
     list_filter = ['course__name', 'name', 'add_time']
 
 

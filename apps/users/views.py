@@ -295,8 +295,8 @@ class UpdateEmailView(LoginRequiredMixin, View):
         return JsonResponse({'status': 'success'})
 
 
-# 个人中心页我的课程
 class MyCourseView(LoginRequiredMixin, View):
+    """个人中心我的课程"""
     login_url = '/login/'
     redirect_field_name = 'next'
 
@@ -305,8 +305,8 @@ class MyCourseView(LoginRequiredMixin, View):
         return render(request, 'usercenter-mycourse.html', {'user_courses': user_courses})
 
 
-# 我收藏的机构
 class MyFavOrgView(LoginRequiredMixin, View):
+    """我收藏的机构"""
     login_url = '/login/'
     redirect_field_name = 'next'
 
@@ -320,8 +320,8 @@ class MyFavOrgView(LoginRequiredMixin, View):
         return render(request, 'usercenter-fav-org.html', {'org_list': org_list,})
 
 
-# 我收藏的授课讲师
 class MyFavTeacherView(LoginRequiredMixin, View):
+    """我收藏的授课讲师"""
     login_url = '/login/'
     redirect_field_name = 'next'
 
@@ -335,8 +335,8 @@ class MyFavTeacherView(LoginRequiredMixin, View):
         return render(request, 'usercenter-fav-teacher.html', {'teacher_list': teacher_list})
 
 
-# 我收藏的课程
 class MyFavCourseView(LoginRequiredMixin, View):
+    """我收藏的课程"""
     login_url = '/login/'
     redirect_field_name = 'next'
 
@@ -350,37 +350,35 @@ class MyFavCourseView(LoginRequiredMixin, View):
         return render(request, 'usercenter-fav-course.html', {'course_list': course_list,})
 
 
-# 我的消息
 class MyMessageView(LoginRequiredMixin, View):
+    """我的消息"""
     login_url = '/login/'
     redirect_field_name = 'next'
 
     def get(self, request):
-        all_message = UserMessage.objects.filter(user= request.user.id)
+        all_message = UserMessage.objects.filter(user=request.user.id)
 
         # 用户进入个人中心消息页面，清空未读消息记录
+        # user是整型字段，不是外键
         all_unread_messages = UserMessage.objects.filter(user=request.user.id, has_read=False)
         for unread_message in all_unread_messages:
             unread_message.has_read = True
             unread_message.save()
-        # 对课程机构进行分页
-        # 尝试获取前台get请求传递过来的page参数
-        # 如果是不合法的配置参数默认返回第一页
-        try:
-            page = request.GET.get('page', 1)
-        except PageNotAnInteger:
-            page = 1
-        # 这里指从allorg中取五个出来，每页显示5个
+        page = request.GET.get('page', 1)
+        # 分页，每页显示4个
         p = Paginator(all_message, 4)
-        messages = p.page(page)
+        try:
+            messages = p.page(page)  # 获取第page页
+        except (PageNotAnInteger, EmptyPage):
+            messages = p.page(1)
         return render(request, 'usercenter-message.html', {'messages': messages})
 
 
-# 首页view
 class IndexView(View):
+    """首页"""
     def get(self,request):
         # 取出轮播图
-        all_banner = Banner.objects.all().order_by('index')[:5]
+        all_banner = Banner.objects.order_by('index')[:5]
         # 正常位课程
         courses = Course.objects.filter(is_banner=False)[:6]
         # 轮播图课程取三个
