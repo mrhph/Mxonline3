@@ -72,11 +72,8 @@
                                         <a href="{% url 'org:org_home' course_org.id %}">
                                             <h1>{{ course_org.name }}</h1>
                                             <div class="pic fl">
-
                                                 <img src="{% static 'images/authentication.png' %}"/>
-
                                                 <img src="{% static 'images/gold.png' %}"/>
-
                                             </div>
                                         </a>
                                     </div>
@@ -87,7 +84,6 @@
                                             {% for course in course_org.course_set.get_queryset  %}
                                                 <a href="{% url 'course:course_detail' course.id %}">{{ course.name }}</a>
                                             {% endfor %}
-
                                         </li>
                                     </ul>
                                 </dd>
@@ -176,6 +172,5 @@
                 });
             });
         })
-
     </script>
 {% endblock %}

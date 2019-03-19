@@ -9,8 +9,6 @@
             {#			<a class="green fr more" href="org-detail-course.html">查看更多  >  </a>#}
         </div>
         <div class="brief group_list">
-
-
             {% for course in all_courses %}
                 <div class="module1_5 box">
                     <a href="{% url 'course:course_detail' course.id %}"><img width="214" src="{{ MEDIA_URL }}{{ course.image }}"/></a>
@@ -28,18 +26,13 @@
                     </div>
                 </div>
             {% endfor %}
-
-
         </div>
-
-
     </div>
     <div class="right companycenter layout" >
         <div class="head">
             <h1>机构教师</h1>
             {#        <a class="green fr more" href="org-detail-teachers.html">查看更多  >  </a>#}
         </div>
-
         {% for teacher in all_teacher %}
             <div onclick="window.location.href= '{% url 'org:teacher_detail' teacher.id %}';return false"class="diarys">
                 <div class="module5 share company-diary-box" style="padding:10px 0;">

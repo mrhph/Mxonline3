@@ -63,7 +63,6 @@
                         </div>
                         <div class="companycenter">
                             <div class="group_list brief">
-
                                 {% for course in all_course %}
                                     <div class="module1_5 box">
                                         <a href="{% url 'course:course_detail' course.id %}">
@@ -181,8 +180,7 @@
                 },
             ]
         }
-        //以下为js加载部分
-        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+        //分享js加载
+        //with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
     </script>
-
 {% endblock %}
