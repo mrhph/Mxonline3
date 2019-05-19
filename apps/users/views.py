@@ -46,7 +46,7 @@ class RegisterView(View):
             # 写入欢迎注册消息
             user_message = UserMessage.objects.create(
                 user=user_profile.id,
-                message='欢迎注册慕课小站!! --系统自动消息',
+                message='欢迎注册微慕课!! --系统自动消息',
             )
 
             # 发送注册激活邮件
@@ -89,7 +89,8 @@ class CustomBackend(ModelBackend):
             if user.check_password(password):  # 检查密码，匹配返回True
                 return user
         except UserProfile.DoesNotExist:
-            return HttpResponse(render_to_string('404.html'), content_type='text/html')
+            # return HttpResponse(render_to_string('404.html'), content_type='text/html')
+            return None
 
 
 class LoginView(View):
@@ -106,8 +107,9 @@ class LoginView(View):
 
             # 成功返回user对象,失败返回null
             user = authenticate(username=user_name, password=pass_word)
+            print(user)
 
-            if user is not None:
+            if user:
                 if user.is_active:  # 激活状态
                     login(request, user)  # 登录
                     redirect_url = request.POST.get('next', '')
@@ -126,12 +128,11 @@ class LoginView(View):
 class LogoutView(View):
     """退出登录"""
     def get(self, request):
-        # django自带的logout
         logout(request)
         return redirect(reverse('index'))
 
 
-# 登录， 抛弃方法型实现，改为类实现
+# 登录
 def user_login(request):
     if request.method == 'POST':
         user_name = request.POST.get('username', '')
@@ -167,7 +168,7 @@ class ForgetPwdView(View):
 
 
 class ResetView(View):
-    """重置密码"""
+    """通过邮箱点击链接，重置密码"""
     def get(self, request, active_code):
         active_form = ActiveForm(request.GET)
         try:

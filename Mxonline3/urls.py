@@ -53,11 +53,9 @@ urlpatterns = [
     # user
     path('users/', include('users.urls', namespace='users')),
 
-    # 处理图片显示的url,使用Django自带serve,传入参数告诉它去哪个路径找，我们有配置好的路径MEDIAROOT
-    # re_path('media/(?P<path>.*)', serve, {'document_root': settings.MEDIA_ROOT}),
-    # 处理图片显示的url,使用Django自带serve,传入参数告诉它去哪个路径找，我们有配置好的路径MEDIAROOT
 ]
 
+# 处理图片显示的url,使用Django自带serve,传入参数路径
 # 开发阶段配置配置上传文件
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
