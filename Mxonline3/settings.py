@@ -102,8 +102,8 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'mx',
     #     'USER': 'root',
-    #     'PASSWORD': 'hph1314',
-    #     'HOST': '47.100.48.93',
+    #     'PASSWORD': '1234',
+    #     'HOST': '127.0.0.1',
     #     'PORT': '3306',
     # }
 }
@@ -154,10 +154,10 @@ STATICFILES_DIRS = [
 # 发送邮件的setting设置
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = '15565145853@163.com'
-EMAIL_HOST_PASSWORD = 'hph1314'
+EMAIL_HOST_USER = 'test@163.com'
+EMAIL_HOST_PASSWORD = 'test'
 EMAIL_USE_TLS = True
-EMAIL_FROM = '15565145853@163.com'
+EMAIL_FROM = 'test@163.com'
 
 # 设置我们上传文件的路径
 MEDIA_URL = '/media/'
